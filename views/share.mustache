@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Share</title>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <nav>
+      <div class="nav-bar-l">
+        <h1>PetImage</h1>
+        <h2><a href="/">Map</a></h2>
+        <h2><a href="/upload">Upload</a></h2>
+        <h2><a href="/share">Share</a></h2>
+      </div>
+      <div class="nav-bar-r">
+        <ul id="menu">
+          <li>
+            <input class="input_menu" id="check01" type="checkbox" name="menu"/>
+            <label id= "current_user" for="check01">{{user.username}}</label>
+            <ul class="submenu">
+              <li>
+                <form class="logout" action="/logout" method="post">
+                  <button id="button" type="submit" name="">Logout </button>
+                </form>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    {{#messages}}
+      <div class="user_msg">
+        <div class="l-container">
+          <span><h4>{{title}}</h4><small>GPS coordinates: lat {{lat}}, long {{long}}</small></span>
+          <blockquote>
+            {{body}}
+          </blockquote>
+          <p><small>Contact method: {{contact}}</small></p>
+          <p><small>Posted by {{username}} at {{createAt}}</small></p>
+        </div>
+      </div>
+    {{/messages}}
+  </body>
+</html>

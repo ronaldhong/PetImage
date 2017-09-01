@@ -1,0 +1,217 @@
+h1{
+  color:white;
+}
+#login_title{
+  font-size: 2.5em;
+  margin-top: 40px;
+  margin-bottom: 20px;
+
+}
+.user_msg{
+  margin:10px 10px;
+  background-color: white;
+  color:black;
+}
+.l-container{
+  padding:10px 30px;
+}
+.l-container p{
+  margin: 0 0;
+}
+nav{
+  color: white;
+  display: flex;
+}
+nav a{
+  text-decoration: none;
+  border: none;
+  color: #686767;
+}
+nav a:hover{
+  color:white;
+}
+.nav-bar-l{
+  display: flex;
+  width:90%;
+}
+#current_user{
+  font-size: 1.1em;
+  margin-top:10px;
+  color: #bfbfbf;
+}
+#current_user:hover{
+  color:white;
+}
+#button{
+  background-color: #686767;
+  color: white;
+  border: none;
+  font-size: 1.1em;
+}
+#button:hover{
+  cursor:pointer
+}
+.menu-box{
+  display: none;
+}
+.post{
+  margin-top: 50px;
+}
+.menuopen{
+  display: block;
+}
+.nav-bar-l a{
+  padding-left: 30px;
+}
+.nav-bar-r{
+  margin-top: 15px;
+  float: right;
+  text-align: right;
+}
+
+.login_header,
+footer{
+  text-align: center;
+}
+body {
+	background: #292B2C !important;
+
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+}
+
+#map {
+ height: 550px;
+ width: 100%;
+ margin-top: 30px;
+}
+
+.wrapper {
+	margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.form-signin-heading,
+.checkbox {
+	  margin-bottom: 30px;
+}
+
+.checkbox {
+  font-weight: normal;
+}
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  width:95%;
+}
+.btn{
+  background-color: #008CBA;
+  border: none;
+  color:white;
+  font-size: 1em;
+  border-radius: 15px;
+  padding: 10px 50px;
+}
+.btn:hover{
+  cursor: pointer;
+}
+input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/****/
+ul#menu{
+  position:fixed;
+  top:0;
+  width:100%;
+  height:3em;
+  margin:0;
+  padding:0 10px;
+}
+
+ul#menu > li{
+  float:left;
+  list-style-type:none;
+  position:relative;
+}
+
+.nav_label{
+  position:relative;
+  display:block;
+  padding:0 18px 0 12px;
+  line-height:3em;
+  transition:background 0.3s;
+  cursor:pointer;
+}
+
+.nav_label:after{
+  content:"";
+  position:absolute;
+  display:block;
+  top:50%;
+  right:5px;
+  width:0;
+  height:0;
+  border-top:4px solid rgba(255,255,255,.5);
+  border-bottom:0 solid rgba(255,255,255,.5);
+  border-left:4px solid transparent;
+  border-right:4px solid transparent;
+  transition:border-bottom .1s, border-top .1s .1s;
+  }
+
+/*label:hover,
+input:checked ~ label{background:rgba(0,0,0,.3);}*/
+
+.input_menu:checked ~ label:after{
+  border-top:0 solid rgba(255,255,255,.5);
+  border-bottom:4px solid rgba(255,255,255,.5);
+  transition:border-top .1s, border-bottom .1s .1s;
+}
+
+/*hide the inputs*/
+.input_menu{display:none}
+
+/*show the second levele menu of the selected voice*/
+.input_menu:checked ~ ul.submenu{
+  max-height:300px;
+  transition:max-height 0.5s ease-in;
+}
+
+/*style for the second level menu*/
+ul.submenu{
+  max-height:0;
+  padding:0;
+  overflow:hidden;
+  list-style-type:none;
+  transition:max-height 0.5s ease-out;
+  position:absolute;
+  min-width:100%;
+}
+
+/*ul.submenu li a{
+  display:block;
+  padding:12px;
+  color:#ddd;
+  text-decoration:none;
+  box-shadow:0 -1px rgba(0,0,0,.5) inset;
+  transition:background .3s;
+  white-space:nowrap;
+}*/
