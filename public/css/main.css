@@ -1,3 +1,6 @@
+body{
+  margin: 0 0;
+}
 h1{
   color:white;
 }
@@ -7,16 +10,59 @@ h1{
   margin-bottom: 20px;
 
 }
-.user_msg{
-  margin:10px 10px;
+label{
+  color:white;
+}
+.users_messages{
+  margin-top: 30px;
+}
+.user_message{
+  display: flex;
   background-color: white;
-  color:black;
+  border-radius: 10px;
+  width: 75%;
+  box-shadow: 2px 4px 4px 1px silver;
 }
-.l-container{
-  padding:10px 30px;
+.background{
+  background-image: url('http://www.houstontranstar.org/resources/images/houston_texas_carousel.jpg');
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height:900px;
+  width:100%;
+  z-index: -999;
+  opacity: .5;
+
 }
-.l-container p{
-  margin: 0 0;
+.register-form{
+  margin-top: 70px;
+  text-align: center;
+  color:white;
+}
+.img_box{
+  margin: 40px 15px;
+  margin-top: 40px;
+}
+.content_box{
+  display: flex;
+  flex-direction: column;
+}
+.content-title h3{
+   margin-top: 40px;
+   margin-bottom: 0;
+}
+.content_user p{
+  text-align: right;
+  padding-right: 40px;
+  margin-top: 0px;
+}
+.content_body p{
+  margin: 0;
+  width: 70%;
+}
+.text_input{
+  margin-top: 10px;
+  box-shadow: 6px 6px 43px -6px rgba(0,0,0,1);
 }
 nav{
   color: white;
@@ -30,9 +76,15 @@ nav a{
 nav a:hover{
   color:white;
 }
+#login_link{
+  color:white;
+}
+
 .nav-bar-l{
   display: flex;
-  width:90%;
+  width:85%;
+  margin-top: 20px;
+  margin-left: 30px;
 }
 #current_user{
   font-size: 1.1em;
@@ -64,21 +116,21 @@ nav a:hover{
   padding-left: 30px;
 }
 .nav-bar-r{
-  margin-top: 15px;
-  float: right;
+  margin-top: 20px;
+
   text-align: right;
 }
 
 .login_header,
 footer{
   text-align: center;
+  margin-bottom: 30px;
 }
 body {
 	background: #292B2C !important;
 
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
 }
-
 #map {
  height: 550px;
  width: 100%;
@@ -136,6 +188,13 @@ input[type="password"] {
   margin-bottom: 20px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.post{
+  width: 50%;
+  text-align: center;
+}
+.post{
+  margin: 40px auto;
 }
 /****/
 ul#menu{

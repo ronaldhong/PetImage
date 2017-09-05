@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Message = require("../models/Message")
 
-
 router.get('/upload', function(req,res){
   res.render('upload')
 })
@@ -16,7 +15,7 @@ router.post('/message/new' ,function(req,res){
   message.contact= req.body.contact
   message.createAt=Date.now()
   message.save()
-  .then(function(link){
+  .then(function(){
     res.redirect("/")
   })
   .catch(function(error){
@@ -25,6 +24,5 @@ router.post('/message/new' ,function(req,res){
       error: error
     })
   })
-
 })
 module.exports = router;

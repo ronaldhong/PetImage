@@ -3,41 +3,49 @@
   <head>
     <meta charset="utf-8">
     <title>PetImage Sign up</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
     <link rel="stylesheet" href="/css/main.css">
 
   </head>
   <body>
-    <div class="">
-      <h1>Sign up form</h1>
+    <div class="login_header">
+      <div>
+        <h1 id="login_title">PetImage</h1>
+      </div>
+    </div>
+    <div class="background"></div>
+    <div class="register-form">
+      <h2>Create an Account...</h2>
       {{#error_message}}
       <div>Password does not match confirmation</div>
       {{/error_message}}
       {{#user_exist}}
       <div class="">User already exist</div>
       {{/user_exist}}
-      <form class="sign_up" action="/register" method="post">
+      <form class="post" action="/register" method="post">
         <div>
           {{#error.errors.username}}
             <div>username required</div>
           {{/error.errors.username}}
           <label for="">New Username</label>
-          <input type="text" name="username" value="">
+          <input type="text" class="form-control" name="username" value="">
         </div>
         <div class="">
           <label for="">Email Address</label>
-          <input type="email" name="email" value="">
+          <input type="email" class="form-control" name="email" value="">
         </div>
         <div>
           {{#error.errors.password}}
             <div>password required</div>
           {{/error.errors.password}}
           <label for="">New Password</label>
-          <input type="password" name="password" value="">
+          <input type="password" class="form-control" name="password" value="">
           </br>
           <label for="">Confirm Password</label>
-          <input type="password" name="confirm" value="">
+          <input type="password" class="form-control" name="confirm" value="">
         </div>
-        <input id="sign_up_submit" type="submit" name="" value="Sign up!">
+        <input class="btn btn-primary" type="submit" name="" value="Sign up!"> Already have an <a id="login_link"href="/">account</a>...?
       </form>
 
     </div>

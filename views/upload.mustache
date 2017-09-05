@@ -4,20 +4,26 @@
     <meta charset="utf-8">
     <title>Upload</title>
     <link rel="stylesheet" href="/css/main.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
   </head>
   <body>
     <nav>
       <div class="nav-bar-l">
         <h1>PetImage</h1>
-        <a href="/">Map</a>
-        <a href="/upload">Upload</a>
-        <a href="/share">Share</a>
+        <h2><a href="/">Map</a></h2>
+        <h2><a href="/upload">Upload</a></h2>
+        <h2><a href="/share">Share</a></h2>
       </div>
       <div class="nav-bar-r">
         <ul id="menu">
           <li>
             <input class="input_menu" id="check01" type="checkbox" name="menu"/>
-            <label id= "current_user" for="check01">{{user.username}}</label>
+            <label class="nav_label" id= "current_user" for="check01">{{user.username}}</label>
             <ul class="submenu">
               <li>
                 <form class="logout" action="/logout" method="post">
@@ -29,33 +35,34 @@
         </ul>
       </div>
     </nav>
-
-
-    <form class="post" action="/message/new" method="post" >
-      <div class="text_input">
-        <input type="text" name="title" value="" placeholder="Title">
-      </div>
-      <div class="">
-        <textarea name="body" rows="8" cols="80" placeholder="Body"></textarea>
-      </div>
-      <div class="text_input">
-        <input type="text" name="contact" value="" placeholder="Contact Method">
-      </div>
-      <div class="text_input">
-        <input type="text" name="lat" value="" placeholder="Latitude Ex. 29.7548">
-      </div>
-      <div class="text_input">
-        <input type="text" name="long" value="" placeholder="Longitude Ex. -95.369">
-      </div>
-      <p>Find out your coordinates <a href="https://www.gps-coordinates.net/">Here</a></p>
-      <!-- <input type="file" name="myimage" value="" onchange="readURL(this)" ></input> -->
-      <div class="search">
-        <input type="submit" name="" value="Save">
-      </div>
-    </form>
-    <div class="">
-      <img id="blah" src="#" alt="your image" />
+    <div class="upload_form">
+      <form class="post" action="/message/new" method="post" >
+        <div class="text_input">
+          <input type="text" class="form-control" name="title" value="" placeholder="Title">
+        </div>
+        <div class="text_input">
+          <textarea class="form-control" name="body" rows="8" cols="80" placeholder="Body"></textarea>
+        </div>
+        <div class="text_input">
+          <input type="text" class="form-control" name="contact" value="" placeholder="Contact Method Ex. Email/Phone">
+        </div>
+        <div class="text_input">
+          <input type="text" class="form-control" name="lat" value="" placeholder="Latitude Ex. 29.7548">
+        </div>
+        <div class="text_input">
+          <input type="text" class="form-control" name="long" value="" placeholder="Longitude Ex. -95.369">
+        </div>
+        <p style="color: white">Find out your coordinates <a href="https://www.gps-coordinates.net/" target="_blank">Here</a></p>
+        <!-- <input type="file" name="myimage" value="" onchange="readURL(this)" ></input> -->
+        <div class="search">
+          <input class="btn btn-primary" type="submit" name="" value="Submit">
+        </div>
+      </form>
     </div>
+
+    <!-- <div class="">
+      <img id="blah" src="#" alt="your image" />
+    </div> -->
     <script type="text/javascript" src="./js/index.js"></script>
   </body>
 </html>

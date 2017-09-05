@@ -6,8 +6,9 @@ const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-var http = require('http'),
-  httpProxy = require('http-proxy');
+const message =require("./models/Message")
+var socket = require('socket.io')
+var http = require('http')
 
 app.engine('mustache', mustache())
 app.set('view engine', 'mustache')
@@ -25,7 +26,6 @@ var sess = {
   saveUninitialized: true
 }
 app.use(session(sess))
-// var proxy = httpProxy.createProxyServer({});
 
 const loginRoute= require('./Router/login')
 const registerRoute= require('./Router/register')
@@ -40,6 +40,29 @@ app.use(authentication)
 app.use(homeRoute)
 app.use(uploadRoute)
 app.use(shareRoute)
-app.listen(5000, function(){
+var server = app.listen(5000, function(){
   console.log("We are listening")
 })
+
+let coord=[]
+
+  message.find()
+  .then(function(message){
+    for (var i = 0; i <  message.length; i++) {
+      if (message[i].lat) {
+          var location ={title: `${message[i].title}`, time: `${message[i].createAt}`,lat:parseFloat(`${message[i].lat}`), lng:parseFloat(`${message[i].long}`), body: `${message[i].body}`}
+          coord.push(location)
+        }
+      }
+      let coord_json =JSON.stringify(coord)
+      var server = http.createServer(function (req, res) {
+        res.writeHead(200, {'Content-Type': 'text/plain','Access-Control-Allow-Origin' : '*' });
+        res.write(coord_json); //write a response to the client
+        res.end(); //end the response
+      }).listen(8080); //the server object listens on port 8080
+    })
+//socket setup
+// let io = socket(server)
+// io.on('connection', function(socket){
+//   console.log("socket is connected.", socket.id);
+// })

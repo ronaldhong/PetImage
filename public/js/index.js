@@ -1,46 +1,43 @@
+//make socket connection
+// let socket = io.connect('http://localhost:5000')
+//
 let coord_list=[]
 function initMap() {
-
-
   var houston = {lat: 29.7604, lng: -95.3698};
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 10,
     center: houston
   });
-  var infowindow = new google.maps.InfoWindow();
+
 
   fetch("http://localhost:8080/")
   .then( function(response){
     return response.json()
   })
   .then(function(data){
+    var infowindow = new google.maps.InfoWindow();
     for (var i = 0; i < data.length; i++) {
       console.log(data[i]);
+      let content_string= data[i].body
       let position ={'lat':data[i].lat, 'lng': data[i].lng}
+
+      // var infoWindow = new google.maps.InfoWindow({
+      let content = `
+        <h3>${data[i].title}</h3>
+        <img src="https://iheartcats.com/wp-content/uploads/2017/05/cat-1.jpeg" height="100" width="100">
+        <p>${data[i].time}</p>
+        <p>${content_string}</p>
+        `
+      // })
+
       var marker= new google.maps.Marker({
         position: position,
         map: map
       })
-      var infoWindow = new google.maps.InfoWindow({
-        content:`
-          <h3>${data[i].title}</h3>
-          <img src="https://iheartcats.com/wp-content/uploads/2017/05/cat-1.jpeg" height="100" width="100">
-          <p>${data[i].time}</p>
-          <p>${data[i].body}</p>
-          `
-      })
       marker.addListener('click', function(){
-        infoWindow.open(map,marker);
+        infowindow.setContent(content)
+        infowindow.open(map,marker);
       })
-      // google.maps.event.addListener(marker, 'click', (function(marker, i) {
-      //         return function() {
-      //           console.log("click");
-      //           infowindow.setContent(data[i].title);
-      //           infowindow.open(map, marker);
-      //         }
-      //       }
-      //     )
-      //   )(marker, i);
     }
   })
 }

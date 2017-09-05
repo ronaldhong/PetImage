@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Share</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
   </head>
   <body>
     <nav>
@@ -17,7 +19,7 @@
         <ul id="menu">
           <li>
             <input class="input_menu" id="check01" type="checkbox" name="menu"/>
-            <label id= "current_user" for="check01">{{user.username}}</label>
+            <label class="nav_label" id= "current_user" for="check01">{{user.username}}</label>
             <ul class="submenu">
               <li>
                 <form class="logout" action="/logout" method="post">
@@ -29,17 +31,28 @@
         </ul>
       </div>
     </nav>
-    {{#messages}}
-      <div class="user_msg">
-        <div class="l-container">
-          <span><h4>{{title}}</h4><small>GPS coordinates: lat {{lat}}, long {{long}}</small></span>
-          <blockquote>
-            {{body}}
-          </blockquote>
-          <p><small>Contact method: {{contact}}</small></p>
-          <p><small>Posted by {{username}} at {{createAt}}</small></p>
+    <div class="users_messages">
+      {{#messages}}
+      <div class="user_message">
+        <div class="img_box">
+          <img src="https://iheartcats.com/wp-content/uploads/2017/05/cat-1.jpeg" alt="img" height=150 width=150>
+        </div>
+        <div class="content_box">
+          <div class="content-title">
+            <h3>{{title}}</h3>
+          </div>
+          <div class="content_user">
+            <p>by {{username}}</p>
+          </div>
+          <div class="content_body">
+            <p>{{body}}</p>
+          </div>
+          <div class="content-createAt">
+            <p><small><i class="fa fa-calendar" aria-hidden="true"></i> {{createAt}} | <i class="fa fa-globe" aria-hidden="true"></i> Lat: {{lat}}, Lng: {{long}} | <i class="fa fa-user" aria-hidden="true"></i> Contact method: {{contact}} </small></p>
+          </div>
         </div>
       </div>
-    {{/messages}}
+      {{/messages}}
+    </div>
   </body>
 </html>
