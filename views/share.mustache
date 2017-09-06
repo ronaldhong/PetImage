@@ -14,6 +14,7 @@
         <h2><a href="/">Map</a></h2>
         <h2><a href="/upload">Upload</a></h2>
         <h2><a href="/share">Share</a></h2>
+        <h2><a href="/mypost">My Post</a></h2>
       </div>
       <div class="nav-bar-r">
         <ul id="menu">
@@ -50,6 +51,9 @@
           <div class="content-createAt">
             <p><small><i class="fa fa-calendar" aria-hidden="true"></i> {{createAt}} | <i class="fa fa-globe" aria-hidden="true"></i> Lat: {{lat}}, Lng: {{long}} | <i class="fa fa-user" aria-hidden="true"></i> Contact method: {{contact}} </small></p>
           </div>
+          {{#edit}}
+          <a href="/edit/{{_id}}" style="color: purple">edit</a>
+          {{/edit}}
         </div>
       </div>
       {{/messages}}

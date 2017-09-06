@@ -11,7 +11,7 @@ router.post('/auth', function(req, res){
   console.log('auth',req.body.email);
   console.log('auth', req.body.password);
   User.findOne({
-    email: req.body.email,
+    username: req.body.username,
     password: req.body.password
   }).then(function(user){
     if (user){

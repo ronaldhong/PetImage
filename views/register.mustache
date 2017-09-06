@@ -18,26 +18,29 @@
     <div class="register-form">
       <h2>Create an Account...</h2>
       {{#error_message}}
-      <div>Password does not match confirmation</div>
+      <div style="color: red">Password does not match confirmation</div>
       {{/error_message}}
       {{#user_exist}}
-      <div class="">User already exist</div>
+      <div class="" style="color: red">User already exist</div>
       {{/user_exist}}
       <form class="post" action="/register" method="post">
         <div>
           {{#error.errors.username}}
-            <div>username required</div>
+            <div style="color: red">username required</div>
           {{/error.errors.username}}
           <label for="">New Username</label>
           <input type="text" class="form-control" name="username" value="">
         </div>
         <div class="">
+          {{#error.errors.username}}
+            <div style="color: red">email required</div>
+          {{/error.errors.username}}
           <label for="">Email Address</label>
           <input type="email" class="form-control" name="email" value="">
         </div>
         <div>
           {{#error.errors.password}}
-            <div>password required</div>
+            <div style="color: red">password required</div>
           {{/error.errors.password}}
           <label for="">New Password</label>
           <input type="password" class="form-control" name="password" value="">

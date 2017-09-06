@@ -18,6 +18,7 @@
         <h2><a href="/">Map</a></h2>
         <h2><a href="/upload">Upload</a></h2>
         <h2><a href="/share">Share</a></h2>
+        <h2><a href="/mypost">My Post</a></h2>
       </div>
       <div class="nav-bar-r">
         <ul id="menu">
@@ -36,21 +37,21 @@
       </div>
     </nav>
     <div class="upload_form">
-      <form class="post" action="/message/new" method="post" >
+      <form class="live-submit" action="" method="post" >
         <div class="text_input">
-          <input type="text" class="form-control" name="title" value="" placeholder="Title">
+          <input type="text" id="pet-title" class="form-control" name="title" value="" placeholder="Title">
         </div>
         <div class="text_input">
-          <textarea class="form-control" name="body" rows="8" cols="80" placeholder="Body"></textarea>
+          <textarea class="form-control" id="pet-body" name="body" rows="8" cols="80" placeholder="Body"></textarea>
         </div>
         <div class="text_input">
-          <input type="text" class="form-control" name="contact" value="" placeholder="Contact Method Ex. Email/Phone">
+          <input type="text" class="form-control" id="pet-contact" name="contact" value="" placeholder="Contact Method Ex. Email/Phone">
         </div>
         <div class="text_input">
-          <input type="text" class="form-control" name="lat" value="" placeholder="Latitude Ex. 29.7548">
+          <input type="text" class="form-control" id="pet-lat" name="lat" value="" placeholder="Latitude Ex. 29.7548">
         </div>
         <div class="text_input">
-          <input type="text" class="form-control" name="long" value="" placeholder="Longitude Ex. -95.369">
+          <input type="text" class="form-control" id="pet-long" name="long" value="" placeholder="Longitude Ex. -95.369">
         </div>
         <p style="color: white">Find out your coordinates <a href="https://www.gps-coordinates.net/" target="_blank">Here</a></p>
         <!-- <input type="file" name="myimage" value="" onchange="readURL(this)" ></input> -->
@@ -63,6 +64,6 @@
     <!-- <div class="">
       <img id="blah" src="#" alt="your image" />
     </div> -->
-    <script type="text/javascript" src="./js/index.js"></script>
+    <script type="text/javascript" src="./js/index.js" charset="utf-8"></script>
   </body>
 </html>

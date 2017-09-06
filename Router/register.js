@@ -19,6 +19,11 @@ router.post('/register', function(req, res){
       res.redirect("/")
     })
     .catch(function(error){
+      if (User.find({"username": req.body.username})){
+        res.render("register",{
+          user_exist: error
+        })
+      }
       res.render("register",{
         error: error
 

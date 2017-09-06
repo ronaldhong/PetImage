@@ -5,24 +5,36 @@ const Message = require("../models/Message")
 router.get('/upload', function(req,res){
   res.render('upload')
 })
-router.post('/message/new' ,function(req,res){
-  const message = new Message()
-  message.title = req.body.title
-  message.body = req.body.body
-  message.username = req.user.username
-  message.lat = req.body.lat
-  message.long=req.body.long
-  message.contact= req.body.contact
-  message.createAt=Date.now()
-  message.save()
-  .then(function(){
-    res.redirect("/")
-  })
-  .catch(function(error){
-    console.log("MESSAGE ERROR");
-    res.render("message", {
-      error: error
+router.get('/edit/:id', function(req,res){
+  // console.log(req.params.id);
+  Message.find({_id: req.params.id})
+  .then(function(messages){
+    let message= messages[0]
+    // console.log(messages[0]._id);
+    res.render('edit',{
+      messages: message,
+      user:req.user
     })
   })
+})
+router.post('/edit/:id',function(req,res){
+  Message.findOne({_id: req.params.id})
+  .then(function(message){
+    message.title = req.body.title;
+    message.contact = req.body.contact;
+    message.body=req.body.body;
+    message.lat= req.body.lat;
+    message.long=req.body.long;
+    message.save()
+    .then(function(message){
+      res.redirect('/mypost')
+    })
+    .catch(function(validationError){
+      res.redirect('/mypost', {
+        validationError: validationError
+      })
+    })
+  })
+  // res.redirect('/mypost')
 })
 module.exports = router;

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit my post</title>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <nav>
+      <div class="nav-bar-l">
+        <h1>PetImage</h1>
+        <h2><a href="/">Map</a></h2>
+        <h2><a href="/upload">Upload</a></h2>
+        <h2><a href="/share">Share</a></h2>
+        <h2><a href="/mypost">My Post</a></h2>
+      </div>
+      <div class="nav-bar-r">
+        <ul id="menu">
+          <li>
+            <input class="input_menu" id="check01" type="checkbox" name="menu"/>
+            <label class="nav_label" id= "current_user" for="check01">{{user.username}}</label>
+            <ul class="submenu">
+              <li>
+                <form class="logout" action="/logout" method="post">
+                  <button id="button" type="submit" name="">Logout </button>
+                </form>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    {{#messages}}
+    <div class="upload_form">
+      <form class="edit_form" action="/edit/{{_id}}" method="post" >
+        <div class="text_input">
+          <input type="text" id="pet-title" class="form-control" name="title" value={{title}} placeholder="Title">
+        </div>
+        <div class="text_input">
+          <textarea class="form-control" id="pet-body" name="body" rows="8" cols="80" placeholder="Body">{{body}}</textarea>
+        </div>
+        <div class="text_input">
+          <input type="text" class="form-control" id="pet-contact" name="contact" value={{contact}} placeholder="Contact Method Ex. Email/Phone">
+        </div>
+        <div class="text_input">
+          <input type="text" class="form-control" id="pet-lat" name="lat" value={{lat}} placeholder="Latitude Ex. 29.7548">
+        </div>
+        <div class="text_input">
+          <input type="text" class="form-control" id="pet-long" name="long" value={{long}} placeholder="Longitude Ex. -95.369">
+        </div>
+        <p style="color: white">Find out your coordinates <a href="https://www.gps-coordinates.net/" target="_blank">Here</a></p>
+        <!-- <input type="file" name="myimage" value="" onchange="readURL(this)" ></input> -->
+        <div class="search">
+          <input class="btn btn-primary" type="submit" name="" value="Submit">
+        </div>
+      </form>
+    </div>
+    {{/messages}}
+
+
+  </body>
+</html>
