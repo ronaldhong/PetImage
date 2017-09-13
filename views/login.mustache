@@ -12,14 +12,14 @@
         <h1 id="login_title">PetImage</h1>
       </div>
     </div>
-
+    <div class="background"></div>
     <div class="wrapper">
       <form class="form-signin" action="/auth" method="post">
         <h2 class="form-signin-heading">Please login</h2>
         {{#error}}
         <div>Incorrect Usernme/Password </div>
         {{/error}}
-        <input type="text" class="form-control" name="username" placeholder="Username Address" required="" autofocus="" />
+        <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
         <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
         <br>
         <button class="btn" type="submit">Login</button>
@@ -31,7 +31,7 @@
       </form>
     </div>
     <footer>
-      <h6>Copyright © 2017 by Ronald Hong. All rights reserved.</h6>
+      <h5 style="color:white">Copyright © 2017 by Ronald Hong. All rights reserved.</h5>
     </footer>
     <script type="text/javascript" src="/js/index.js" charset="utf-8">  </script>
   </body>

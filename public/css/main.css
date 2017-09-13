@@ -8,7 +8,6 @@ h1{
   font-size: 2.5em;
   margin-top: 40px;
   margin-bottom: 20px;
-
 }
 label{
   color:white;
@@ -22,33 +21,34 @@ label{
   border-radius: 10px;
   width: 75%;
   box-shadow: 2px 4px 4px 1px silver;
+  margin-bottom: 15px;
 }
 .background{
   background-image: url('http://www.houstontranstar.org/resources/images/houston_texas_carousel.jpg');
   position: absolute;
   background-repeat: no-repeat;
   background-size: contain;
-  height:900px;
+  height:1000px;
   width:100%;
   z-index: -999;
   opacity: .5;
-
+  /*bottom: 50px;*/
 }
 .register-form{
   margin-top: 70px;
   text-align: center;
   color:white;
 }
-.img_box{
-  margin: 40px 15px;
-  margin-top: 40px;
+.img_box, .edit_form{
+  margin: 30px 15px;
 }
 .content_box{
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
+  width:800px;
 }
 .content-title h3{
-   margin-top: 40px;
    margin-bottom: 0;
 }
 .content_user p{
@@ -73,10 +73,8 @@ nav a{
   border: none;
   color: #686767;
 }
-nav a:hover{
-  color:white;
-}
-#login_link{
+
+#login_link, nav a:hover, #current_user:hover{
   color:white;
 }
 
@@ -91,9 +89,7 @@ nav a:hover{
   margin-top:10px;
   color: #bfbfbf;
 }
-#current_user:hover{
-  color:white;
-}
+
 #button{
   background-color: #686767;
   color: white;
@@ -120,6 +116,19 @@ nav a:hover{
 
   text-align: right;
 }
+.upload_flex{
+  display: flex;
+  justify-content: space-around;
+}
+.upload_form{
+  width:40%;
+  padding-left: 20px;
+  padding-top: 40px;
+}
+.upload_flex #map{
+  margin-right: 30px;
+}
+
 
 .login_header,
 footer{
@@ -138,7 +147,7 @@ body {
 }
 
 .wrapper {
-	margin-top: 50px;
+	margin-top: 90px;
   margin-bottom: 80px;
 }
 

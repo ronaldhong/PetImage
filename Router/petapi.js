@@ -5,12 +5,11 @@ const Message =require("../models/Message")
 router.get('/api/pet', function(req, res){
   Message.find()
   .then(function(pet){
-    console.log(pet);
     res.json( {pet:pet} )
   })
 })
 router.post("/api/pet", function(req,res){
-  console.log("title",req.body.title);
+
   const message= new Message()
   message.title = req.body.title
   message.body = req.body.body
@@ -20,11 +19,12 @@ router.post("/api/pet", function(req,res){
   message.contact= req.body.contact
   message.createAt=Date.now()
   message.save()
-  .then( function(message){
-    // res.status(201).json(message)
-    res.redirect("/")
+  .then(function(message){
+    res.redirect('/mypost')
   })
   .catch( function(validationError){
+    console.log("hmm");
+    res.redirect('/mypost')
     let error;
     res.status(422).json(validationError)
     res.render('upload',{

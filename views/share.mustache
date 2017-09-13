@@ -51,11 +51,29 @@
           <div class="content-createAt">
             <p><small><i class="fa fa-calendar" aria-hidden="true"></i> {{createAt}} | <i class="fa fa-globe" aria-hidden="true"></i> Lat: {{lat}}, Lng: {{long}} | <i class="fa fa-user" aria-hidden="true"></i> Contact method: {{contact}} </small></p>
           </div>
+          {{^edit}}
+          <button style="width: 300px" name={{_id}}>show {{comments.length}} comment(s)</button>
+          {{/edit}}
           {{#edit}}
-          <a href="/edit/{{_id}}" style="color: purple">edit</a>
+          <a href="/post/edit/{{_id}}" style="color: purple">edit</a>
           {{/edit}}
         </div>
       </div>
+      {{^edit}}
+        <form class="" action="/comment/post/{{_id}}" method="post">
+          <textarea name="name" rows="1" cols="80" placeholder="write a comment......"></textarea>
+          <input type="submit" name="" value="submit">
+        </form>
+        <div id={{_id}}>
+          {{#comments}}
+            <p >{{body}} by {{user}}</p>
+            {{createAt}}
+          {{/comments}}
+        </div>
+      {{/edit}}
+
+
+
       {{/messages}}
     </div>
   </body>

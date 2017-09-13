@@ -1,14 +1,14 @@
+function Conform_Delete()
+    {
+       return conform("Are You Sure Want to Delete?");
+    }
 ///Fetch
 document.querySelector("form.live-submit").addEventListener("submit", function(event){
   event.preventDefault();
   let title = document.querySelector("#pet-title").value.toString()
   let body = document.querySelector("#pet-body").value.toString()
   let contact = document.querySelector("#pet-contact").value.toString()
-  console.log('title', title);
-  console.log('body',body);
-  console.log('contact',contact);
-  console.log('lat', document.querySelector("#pet-lat").value);
-  console.log('long', document.querySelector("#pet-long").value);
+
   form = {
     title: title,
     body: body,
@@ -31,6 +31,7 @@ document.querySelector("form.live-submit").addEventListener("submit", function(e
   })
   .then( function(r) {
     return r.json()
+
   })
   .catch( function(e) {
     console.log("ERROR:", e)
@@ -40,8 +41,7 @@ document.querySelector("form.live-submit").addEventListener("submit", function(e
 
 
 
-//////google map
-let coord_list = []
+//////Google map
 function initMap() {
   var houston = {
     lat: 29.7604,
@@ -51,7 +51,10 @@ function initMap() {
     zoom: 10,
     center: houston
   });
-
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: houston
+  });
   fetch("/api/pet",{
     credentials: "same-origin",
     headers : {
@@ -64,13 +67,17 @@ function initMap() {
   })
   .then(function(data) {
     var infowindow = new google.maps.InfoWindow();
+    google.maps.event.addListener(map, 'click', function(event) {
+      alert("Latitude: " + event.latLng.lat() + " " + ", longitude: " + event.latLng.lng());
+    });
+
+
     for (var i = 0; i < data.pet.length; i++) {
       let content_string = data.pet[i].body
       let position = {
         'lat': data.pet[i].lat,
         'lng': data.pet[i].long
       }
-      console.log(position);
       let content = `
         <h3>${data.pet[i].title}</h3>
         <img src="https://iheartcats.com/wp-content/uploads/2017/05/cat-1.jpeg" height="100" width="100">
@@ -87,6 +94,9 @@ function initMap() {
     }
   })
 }
+
+
+
 // function readURL(input) {
 //   if (input.files && input.files[0]) {
 //     var reader = new FileReader();

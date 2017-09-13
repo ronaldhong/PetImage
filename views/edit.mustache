@@ -30,33 +30,42 @@
         </ul>
       </div>
     </nav>
-    {{#messages}}
-    <div class="upload_form">
-      <form class="edit_form" action="/edit/{{_id}}" method="post" >
-        <div class="text_input">
-          <input type="text" id="pet-title" class="form-control" name="title" value={{title}} placeholder="Title">
-        </div>
-        <div class="text_input">
-          <textarea class="form-control" id="pet-body" name="body" rows="8" cols="80" placeholder="Body">{{body}}</textarea>
-        </div>
-        <div class="text_input">
-          <input type="text" class="form-control" id="pet-contact" name="contact" value={{contact}} placeholder="Contact Method Ex. Email/Phone">
-        </div>
-        <div class="text_input">
-          <input type="text" class="form-control" id="pet-lat" name="lat" value={{lat}} placeholder="Latitude Ex. 29.7548">
-        </div>
-        <div class="text_input">
-          <input type="text" class="form-control" id="pet-long" name="long" value={{long}} placeholder="Longitude Ex. -95.369">
-        </div>
-        <p style="color: white">Find out your coordinates <a href="https://www.gps-coordinates.net/" target="_blank">Here</a></p>
-        <!-- <input type="file" name="myimage" value="" onchange="readURL(this)" ></input> -->
-        <div class="search">
-          <input class="btn btn-primary" type="submit" name="" value="Submit">
-        </div>
-      </form>
+    <div class="upload_flex">
+      {{#messages}}
+      <div class="upload_form">
+        <form class="edit_form" action="/edit/{{_id}}" method="post" >
+          <div class="text_input">
+            <input type="text" id="pet-title" class="form-control" name="title" value={{title}} placeholder="Title">
+          </div>
+          <div class="text_input">
+            <textarea class="form-control" id="pet-body" name="body" rows="8" cols="80" placeholder="Body">{{body}}</textarea>
+          </div>
+          <div class="text_input">
+            <input type="text" class="form-control" id="pet-contact" name="contact" value={{contact}} placeholder="Contact Method Ex. Email/Phone">
+          </div>
+          <div class="text_input">
+            <input type="text" class="form-control" id="pet-lat" name="lat" value={{lat}} placeholder="Latitude Ex. 29.7548">
+          </div>
+          <div class="text_input">
+            <input type="text" class="form-control" id="pet-long" name="long" value={{long}} placeholder="Longitude Ex. -95.369">
+          </div>
+          <p style="color: white">Find out your coordinates <a href="https://www.gps-coordinates.net/" target="_blank">Here</a></p>
+          <!-- <input type="file" name="myimage" value="" onchange="readURL(this)" ></input> -->
+          <div class="search">
+            <input class="btn btn-primary delete" type="submit" name="" value="Submit" Onclick="return ConfirmDelete();">
+          </div>
+        </form>
+        <form class="edit_form"  action="/post/delete/{{_id}}" method="post" >
+          <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-primary" type="submit" name="delete"  value="Delete" >Delete</button>
+        </form>
+      </div>
+      {{/messages}}
+      <div id="map" style="height:500px; width:600px"></div>
     </div>
-    {{/messages}}
 
+
+    <script type="text/javascript" src="/js/index.js" charset="utf-8">  </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLY27ZrnuB4CvAY8-WtUaLHsx5hhAW7dY&callback=initMap"></script>
 
   </body>
 </html>

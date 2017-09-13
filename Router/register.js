@@ -7,7 +7,6 @@ router.get('/signup', function(req,res){
 })
 
 router.post('/register', function(req, res){
-  console.log('register', req.body.email);
   if (req.body.password === req.body.confirm){
     const user = new User();
     user.username = req.body.username

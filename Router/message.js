@@ -5,7 +5,7 @@ const Message = require("../models/Message")
 router.get('/upload', function(req,res){
   res.render('upload')
 })
-router.get('/edit/:id', function(req,res){
+router.get('/post/edit/:id', function(req,res){
   // console.log(req.params.id);
   Message.find({_id: req.params.id})
   .then(function(messages){
@@ -36,5 +36,15 @@ router.post('/edit/:id',function(req,res){
     })
   })
   // res.redirect('/mypost')
+})
+
+router.post('/post/delete/:id',function(req,res){
+  Message.remove({_id:req.params.id},function(err, e){
+    if (err){
+      res.json(err)
+    }else{
+      res.redirect('/mypost')
+    }
+  })
 })
 module.exports = router;
