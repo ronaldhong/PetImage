@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Share</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
   </head>
@@ -34,47 +33,50 @@
     </nav>
     <div class="users_messages">
       {{#messages}}
-      <div class="user_message">
-        <div class="img_box">
-          <img src="https://iheartcats.com/wp-content/uploads/2017/05/cat-1.jpeg" alt="img" height=150 width=150>
-        </div>
-        <div class="content_box">
-          <div class="content-title">
-            <h3>{{title}}</h3>
+      <div class="">
+        <div class="user_message">
+          <div class="img_box">
+            <img class="user_upload_img" src="https://iheartcats.com/wp-content/uploads/2017/05/cat-1.jpeg" alt="img" height=150 width=150>
           </div>
-          <div class="content_user">
-            <p>by {{username}}</p>
+          <div class="content_box">
+            <div class="content-title">
+              <h3>{{title}}</h3>
+            </div>
+            <div class="content_user">
+              <p>by {{username}}</p>
+            </div>
+            <div class="content_body">
+              <p>{{body}}</p>
+            </div>
+            <div class="content-createAt">
+              <p><small><i class="fa fa-calendar" aria-hidden="true"></i> {{createAt}} | <i class="fa fa-globe" aria-hidden="true"></i> Lat: {{lat}}, Lng: {{long}} | <i class="fa fa-user" aria-hidden="true"></i> Contact method: {{contact}} </small></p>
+            </div>
+            <button id={{_id}} class="comment_display" name={{_id}}>show {{comments.length}} comment(s)</button>
+            <button id={{_id}}_hide class="comment_hide" type="button" name="button" style="display: none" name={{_id}}>hide comment(s)</button>
+            {{#edit}}
+            <a href="/post/edit/{{_id}}" class="edit_post">edit</a>
+            {{/edit}}
           </div>
-          <div class="content_body">
-            <p>{{body}}</p>
-          </div>
-          <div class="content-createAt">
-            <p><small><i class="fa fa-calendar" aria-hidden="true"></i> {{createAt}} | <i class="fa fa-globe" aria-hidden="true"></i> Lat: {{lat}}, Lng: {{long}} | <i class="fa fa-user" aria-hidden="true"></i> Contact method: {{contact}} </small></p>
-          </div>
-          {{^edit}}
-          <button style="width: 300px" name={{_id}}>show {{comments.length}} comment(s)</button>
-          {{/edit}}
-          {{#edit}}
-          <a href="/post/edit/{{_id}}" style="color: purple">edit</a>
-          {{/edit}}
         </div>
       </div>
-      {{^edit}}
+      <div class="">
         <form class="" action="/comment/post/{{_id}}" method="post">
           <textarea name="name" rows="1" cols="80" placeholder="write a comment......"></textarea>
           <input type="submit" name="" value="submit">
         </form>
-        <div id={{_id}}>
+        <div class="{{_id}} comments" style="display: none">
           {{#comments}}
+          <div class="comment">
             <p >{{body}} by {{user}}</p>
             {{createAt}}
+          </div>
           {{/comments}}
         </div>
-      {{/edit}}
-
-
+      </div>
 
       {{/messages}}
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/index.js" charset="utf-8"> </script>
   </body>
 </html>

@@ -15,10 +15,10 @@ const messageSchema = new mongoose.Schema(
     body: {type:String, required: true},
     contact: {type:String},
     username:{type:String, required: true},
-    createAt: {type: Date, required: true},
+    createAt: {type: Date, required: true, expires: 864000},
     comments: [commentSchema],
     lat: {type:Number},
-    long:{type:Number}
+    long:{type:Number},
     // img:{data:Buffer, }
   }
 )

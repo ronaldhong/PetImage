@@ -38,7 +38,7 @@
     </nav>
     <div class="upload_flex">
       <div class="upload_form">
-        <form class="live-submit" action="" method="post" >
+        <form class="live-submit" >
           <div class="text_input">
             <input type="text" id="pet-title" class="form-control" name="title" value="" placeholder="Title">
           </div>
@@ -54,11 +54,12 @@
           <div class="text_input">
             <input type="text" class="form-control" id="pet-long" name="long" value="" placeholder="Longitude Ex. -95.369">
           </div>
-          <p style="color: white">Click on the map to find out your coordinate.</p>
+          <p style="color: white">Right click on the map to find out your coordinate.</p>
           <!-- <input type="file" name="myimage" value="" onchange="readURL(this)" ></input> -->
           <div class="search">
             <input class="btn btn-primary" type="submit" name="" value="Submit">
           </div>
+          <p style="color:white">After 10 days, inactive post will be deleted.</p>
         </form>
       </div>
       <div id="map" style="height:500px; width:600px"></div>
@@ -66,6 +67,7 @@
     <!-- <div class="">
       <img id="blah" src="#" alt="your image" />
     </div> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="./js/index.js" charset="utf-8"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLY27ZrnuB4CvAY8-WtUaLHsx5hhAW7dY&callback=initMap"></script>
 

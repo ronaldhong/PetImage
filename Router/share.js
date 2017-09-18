@@ -8,7 +8,6 @@ router.get('/share', function(req,res){
   message.find().sort({"createAt": "desc"})
   .then(function(messages){
     let list = messages
-    console.log(list[0].comments.length);
     res.render("share",{
       messages: messages,
       comments: list,
@@ -20,16 +19,19 @@ router.get('/share', function(req,res){
 router.get('/mypost', function(req,res){
   message.find({username: req.user.username})
   .then(function(messages){
+    let list=messages
     let edit="print edit";
     res.render("share",{
       messages:messages,
       user:req.user,
+      comments: list,
       edit: edit
     })
   })
 })
+
 router.post('/comment/post/:id', function(req,res){
-  console.log(req.params.id);
+  // console.log(req.params.id);
   message.findOne({_id: req.params.id})
   .then(function(message){
     body = req.body.name;
@@ -42,7 +44,7 @@ router.post('/comment/post/:id', function(req,res){
       res.redirect('/share')
     })
     .catch(function(error){
-      console.log(error);
+      res.redirect('/share')
     })
   })
 })

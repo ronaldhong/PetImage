@@ -56,6 +56,12 @@ label{
   padding-right: 40px;
   margin-top: 0px;
 }
+
+.comment{
+  color: white;
+
+}
+
 .content_body p{
   margin: 0;
   width: 70%;
@@ -72,6 +78,17 @@ nav a{
   text-decoration: none;
   border: none;
   color: #686767;
+}
+.comment_display, .comment_hide{
+  text-decoration: none;
+  border: none;
+  background-color: white;
+  color: blue;
+  width:120px;
+  padding: 0;
+}
+.comment_display, .comment_hide:hover{
+  cursor: pointer;
 }
 
 #login_link, nav a:hover, #current_user:hover{
@@ -150,6 +167,10 @@ body {
 	margin-top: 90px;
   margin-bottom: 80px;
 }
+.edit_post{
+  text-align: right;
+  padding-right: 50px;
+}
 
 
 .form-signin {
@@ -168,7 +189,9 @@ body {
 .checkbox {
   font-weight: normal;
 }
-
+.user_upload_img{
+  border-radius: 50%;
+}
 .form-control {
   position: relative;
   font-size: 16px;
@@ -201,8 +224,6 @@ input[type="password"] {
 .post{
   width: 50%;
   text-align: center;
-}
-.post{
   margin: 40px auto;
 }
 /****/

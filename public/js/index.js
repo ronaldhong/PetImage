@@ -1,3 +1,23 @@
+///share comment display/hide
+
+$(document).ready(function(){
+    $(".comment_display").click(function(){
+      $(`.${this.id}`).show(100);
+      $(`#${this.id}`).hide();
+      $(`#${this.id}_hide`).show();
+    });
+
+    $(".comment_hide").click(function(){
+      $(`.${this.id}`.slice(0,-5)).hide(100);
+      $(`#${this.id}`.slice(0,-5)).show();
+      $(`#${this.id}`).hide();
+    })
+});
+
+
+
+
+/////Delete mypost
 function Conform_Delete()
     {
        return conform("Are You Sure Want to Delete?");
@@ -8,14 +28,22 @@ document.querySelector("form.live-submit").addEventListener("submit", function(e
   let title = document.querySelector("#pet-title").value.toString()
   let body = document.querySelector("#pet-body").value.toString()
   let contact = document.querySelector("#pet-contact").value.toString()
-
+  // let lat = document.querySelector("#pet-lat").value
+  // let long = document.querySelector("#pet-long").value
   form = {
     title: title,
     body: body,
     contact: contact,
     lat:  document.querySelector("#pet-lat").value,
     long: document.querySelector("#pet-long").value
-};
+  };
+  console.log(form);
+  // alert("TEST")
+  // if ((form.lat !== true)||(form.long !== true)){
+  //   alert("false")
+  //   delete form.lat
+  //   delete form.long
+  // }
   fetch("/api/pet", {
     method: "POST",
     body: JSON.stringify(form),
@@ -35,7 +63,6 @@ document.querySelector("form.live-submit").addEventListener("submit", function(e
   })
   .catch( function(e) {
     console.log("ERROR:", e)
-
   })
 });
 
@@ -44,13 +71,9 @@ document.querySelector("form.live-submit").addEventListener("submit", function(e
 //////Google map
 function initMap() {
   var houston = {
-    lat: 29.7604,
-    lng: -95.3698
+    'lat': 29.7604,
+    'lng': -95.3698
   };
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 10,
-    center: houston
-  });
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 10,
     center: houston
@@ -67,7 +90,7 @@ function initMap() {
   })
   .then(function(data) {
     var infowindow = new google.maps.InfoWindow();
-    google.maps.event.addListener(map, 'click', function(event) {
+    google.maps.event.addListener(map, 'rightclick', function(event) {
       alert("Latitude: " + event.latLng.lat() + " " + ", longitude: " + event.latLng.lng());
     });
 
@@ -80,7 +103,7 @@ function initMap() {
       }
       let content = `
         <h3>${data.pet[i].title}</h3>
-        <img src="https://iheartcats.com/wp-content/uploads/2017/05/cat-1.jpeg" height="100" width="100">
+        <img class="user_upload_img" src="https://iheartcats.com/wp-content/uploads/2017/05/cat-1.jpeg" height="100" width="100">
         <p>${data.pet[i].contact}</p>
         <p>${content_string}</p>
         <small>posted on ${data.pet[i].createAt}</small>
