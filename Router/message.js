@@ -7,6 +7,7 @@ router.get('/upload', function(req,res){
 })
 router.get('/post/edit/:id', function(req,res){
   // console.log(req.params.id);
+  console.log(req.user.username);
   Message.find({_id: req.params.id})
   .then(function(messages){
     let message= messages[0]

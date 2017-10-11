@@ -11,6 +11,7 @@ const message =require("./models/Message")
 app.engine('mustache', mustache())
 app.set('view engine', 'mustache')
 app.use(express.static('public'));
+const port = process.env.PORT || 3000
 app.use(morgan('tiny'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
@@ -41,6 +42,6 @@ app.use(homeRoute)
 app.use(uploadRoute)
 app.use(shareRoute)
 app.use(apiRoute)
-app.listen(3000, function(){
+app.listen(port, function(){
   console.log("We are listening")
 })
