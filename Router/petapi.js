@@ -17,13 +17,15 @@ router.post("/api/pet", function(req,res){
   message.lat = req.body.lat
   message.long=req.body.long
   message.contact= req.body.contact
+  message.imageURL= req.body.image
   message.createAt=Date.now()
   message.save()
   .then(function(message){
+    console.log("IN?");
     res.redirect('/mypost')
   })
   .catch( function(validationError){
-    console.log("hmm");
+    console.log("ERROR in?");
     res.redirect('/mypost')
     let error;
     res.status(422).json(validationError)

@@ -26,6 +26,7 @@ router.post('/edit/:id',function(req,res){
     message.body=req.body.body;
     message.lat= req.body.lat;
     message.long=req.body.long;
+    message.imageURL=req.body.img;
     message.save()
     .then(function(message){
       res.redirect('/mypost')

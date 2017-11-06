@@ -36,7 +36,7 @@
       <div class="">
         <div class="user_message">
           <div class="img_box">
-            <img class="user_upload_img" src="https://iheartcats.com/wp-content/uploads/2017/05/cat-1.jpeg" alt="img" height=150 width=150>
+            <img class="user_upload_img" src={{imageURL}} alt="img" height=150 width=150>
           </div>
           <div class="content_box">
             <div class="content-title">
@@ -67,7 +67,7 @@
         <div class="{{_id}} comments" style="display: none">
           {{#comments}}
           <div class="comment">
-            <p >{{body}} by {{user}}</p>
+            <p >{{body}} &nbsp;&nbsp;&nbsp;&nbsp;by {{user}}</p>
             {{createAt}}
           </div>
           {{/comments}}

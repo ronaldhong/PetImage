@@ -1,5 +1,6 @@
 ///share comment display/hide
 
+
 $(document).ready(function(){
     $(".comment_display").click(function(){
       $(`.${this.id}`).show(100);
@@ -13,58 +14,66 @@ $(document).ready(function(){
       $(`#${this.id}`).hide();
     })
 });
-
-
-
-
 /////Delete mypost
 function Conform_Delete()
     {
-       return conform("Are You Sure Want to Delete?");
+       return conform("Are You Sure?");
     }
 ///Fetch
-document.querySelector("form.live-submit").addEventListener("submit", function(event){
-  event.preventDefault();
-  let title = document.querySelector("#pet-title").value.toString()
-  let body = document.querySelector("#pet-body").value.toString()
-  let contact = document.querySelector("#pet-contact").value.toString()
-  // let lat = document.querySelector("#pet-lat").value
-  // let long = document.querySelector("#pet-long").value
-  form = {
-    title: title,
-    body: body,
-    contact: contact,
-    lat:  document.querySelector("#pet-lat").value,
-    long: document.querySelector("#pet-long").value
-  };
-  console.log(form);
-  // alert("TEST")
-  // if ((form.lat !== true)||(form.long !== true)){
-  //   alert("false")
-  //   delete form.lat
-  //   delete form.long
-  // }
-  fetch("/api/pet", {
-    method: "POST",
-    body: JSON.stringify(form),
-    credentials: "same-origin",
-    headers: {
-      "Accept": "application/json",
-      "content-type": "application/json"
+if (document.querySelector("form.live-submit")){
+  document.querySelector("form.live-submit").addEventListener("submit", function(event){
+    event.preventDefault();
+    let image;
+    let title = document.querySelector("#pet-title").value.toString()
+    let body = document.querySelector("#pet-body").value.toString()
+    let contact = document.querySelector("#pet-contact").value.toString()
+    // let image = document.querySelector("#pet-img").value.toString()
+    console.log(document.querySelector("#pet-img").value.toString());
+    if (document.querySelector("#pet-img").value.toString()){
+      form = {
+        title: title,
+        body: body,
+        contact: contact,
+        lat:  document.querySelector("#pet-lat").value,
+        long: document.querySelector("#pet-long").value,
+        image:document.querySelector("#pet-img").value.toString()
+      };
     }
-  })
-  .then( function(response){
-    console.log("json", response)
-    return response
-  })
-  .then( function(r) {
-    return r.json()
+    else{
+      // let image = 'http://www.craftcuts.com/media/catalog/product/cache/42/small_image/360x250/0d0b21afdf5242369dcac3b6f8a25135/d/i/dimensional_animals_dogs_labrador_retriever.jpg';
+      form = {
+        title: title,
+        body: body,
+        contact: contact,
+        lat:  document.querySelector("#pet-lat").value,
+        long: document.querySelector("#pet-long").value,
+        image:'http://www.craftcuts.com/media/catalog/product/cache/42/small_image/360x250/0d0b21afdf5242369dcac3b6f8a25135/d/i/dimensional_animals_dogs_labrador_retriever.jpg'
+      };
+    }
 
-  })
-  .catch( function(e) {
-    console.log("ERROR:", e)
-  })
-});
+    // let lat = document.querySelector("#pet-lat").value
+    // let long = document.querySelector("#pet-long").value
+    console.log("form",form);
+    fetch("/api/pet", {
+      method: "POST",
+      body: JSON.stringify(form),
+      credentials: "same-origin",
+      headers: {
+        "Accept": "application/json",
+        "content-type": "application/json"
+      }
+    })
+    .then( function(response){
+      alert("Your post is successfully saved!")
+      return response
+
+    })
+    .catch( function(e) {
+      console.log("ERROR")
+    })
+  });
+}
+
 
 
 
@@ -103,7 +112,7 @@ function initMap() {
       }
       let content = `
         <h3>${data.pet[i].title}</h3>
-        <img class="user_upload_img" src="https://iheartcats.com/wp-content/uploads/2017/05/cat-1.jpeg" height="100" width="100">
+        <img class="user_upload_img" src=${data.pet[i].imageURL} height="100px" width="100px">
         <p>${data.pet[i].contact}</p>
         <p>${content_string}</p>
         <small>posted on ${data.pet[i].createAt}</small>

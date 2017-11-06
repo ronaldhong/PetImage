@@ -17,7 +17,7 @@
       <form class="form-signin" action="/auth" method="post">
         <h2 class="form-signin-heading">Please login</h2>
         {{#error}}
-        <div>Incorrect Usernme/Password </div>
+        <p style="color:red;">Incorrect Usernme/Password </p>
         {{/error}}
         <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
         <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
@@ -33,6 +33,7 @@
     <footer>
       <h5 style="color:white">Copyright © 2017 by Ronald Hong. All rights reserved.</h5>
     </footer>
-    <script type="text/javascript" src="/js/index.js" charset="utf-8">  </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/index.js" charset="utf-8"></script>
   </body>
 </html>

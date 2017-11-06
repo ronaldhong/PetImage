@@ -5,11 +5,6 @@
     <title>Upload</title>
     <link rel="stylesheet" href="/css/main.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
-    <!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
   </head>
   <body>
     <nav>
@@ -38,21 +33,24 @@
     </nav>
     <div class="upload_flex">
       <div class="upload_form">
-        <form class="live-submit" >
+        <form class="live-submit">
           <div class="text_input">
-            <input type="text" id="pet-title" class="form-control" name="title" value="" placeholder="Title">
+            <input type="text" id="pet-title" class="form-control" name="title" value="" placeholder="Title *">
           </div>
           <div class="text_input">
-            <textarea class="form-control" id="pet-body" name="body" rows="8" cols="80" placeholder="Body"></textarea>
+            <textarea class="form-control" id="pet-body" name="body" rows="8" cols="80" placeholder="Body *"></textarea>
           </div>
           <div class="text_input">
-            <input type="text" class="form-control" id="pet-contact" name="contact" value="" placeholder="Contact Method Ex. Email/Phone">
+            <input type="text" class="form-control" id="pet-contact" name="contact" value="" placeholder="Contact Method Ex. Email/Phone *">
           </div>
           <div class="text_input">
-            <input type="text" class="form-control" id="pet-lat" name="lat" value="" placeholder="Latitude Ex. 29.7548">
+            <input type="text" class="form-control" id="pet-lat" name="lat" value="" placeholder="Latitude Ex. 29.7548 *">
           </div>
           <div class="text_input">
-            <input type="text" class="form-control" id="pet-long" name="long" value="" placeholder="Longitude Ex. -95.369">
+            <input type="text" class="form-control" id="pet-long" name="long" value="" placeholder="Longitude Ex. -95.369 *">
+          </div>
+          <div class="text_input">
+            <input type="text" class="form-control" id="pet-img" name="img" value="" placeholder="Image URL">
           </div>
           <p style="color: white">Right click on the map to find out your coordinate.</p>
           <!-- <input type="file" name="myimage" value="" onchange="readURL(this)" ></input> -->

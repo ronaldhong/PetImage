@@ -15,8 +15,9 @@ const messageSchema = new mongoose.Schema(
     body: {type:String, required: true},
     contact: {type:String},
     username:{type:String, required: true},
-    createAt: {type: Date, required: true, expires: 86400000},
+    createAt: {type: Date, required: true, expires: 86400000, default: Date.now},
     comments: [commentSchema],
+    imageURL: {type:String },
     lat: {type:Number},
     long:{type:Number},
     // img:{data:Buffer, }
