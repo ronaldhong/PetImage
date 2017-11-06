@@ -16,7 +16,9 @@ app.use(morgan('tiny'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 mongoose.Promise = require("bluebird");
-mongoose.connect("mongodb://0.0.0.0:27017/petImage")
+// mongoose.connect("mongodb://0.0.0.0:27017/petImage")
+mongoose.connect("mongodb://testUser:user@ds227525.mlab.com:27525/petimage")
+
 
 var sess = {
   secret: 'ASKDFJAISDFYAKNFQ#$%(@*#@23$)',
