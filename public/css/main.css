@@ -27,8 +27,8 @@ label{
   background-image: url('http://www.houstontranstar.org/resources/images/houston_texas_carousel.jpg');
   position: absolute;
   background-repeat: no-repeat;
-  background-size: contain;
-  height:1000px;
+  background-size: cover;
+  height:700px;
   width:100%;
   z-index: -999;
   opacity: .5;
@@ -181,7 +181,9 @@ body {
 
 
 .form-signin {
-  max-width: 380px;
+  width: 35%;
+  min-width: 300px;
+  height:350px;
   padding: 15px 35px 45px;
   margin: 0 auto;
   background-color: #fff;

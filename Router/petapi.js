@@ -19,6 +19,7 @@ router.post("/api/pet", function(req,res){
   message.contact= req.body.contact
   message.imageURL= req.body.image
   message.createAt=Date.now()
+  console.log('body',req.body.body);
   message.save()
   .then(function(message){
     console.log("IN?");
