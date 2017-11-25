@@ -1,7 +1,16 @@
 ///share comment display/hide
 
-
 $(document).ready(function(){
+    // $('#slides').slidesjs({
+    //   width: 740,
+    //   height: 220,
+    //   play: {
+    //     active: true,
+    //     auto: true,
+    //     interval: 4000,
+    //     swap: true
+    //   }
+    // });
     $(".comment_display").click(function(){
       $(`.${this.id}`).show(100);
       $(`#${this.id}`).hide();

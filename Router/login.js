@@ -6,6 +6,9 @@ const User = require("../models/Users")
 router.get('/login', function(req, res){
   res.render("login")
 })
+router.get('/about',function(req,res){
+  res.render('about')
+})
 
 router.post('/auth', function(req, res){
   User.findOne({
