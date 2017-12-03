@@ -10,6 +10,6 @@ To run:
 2. <on command line> Go to the PetImage directory.<br>
 3. <on command line> run npm install. <br>
 4. <on command line> run nodemon app.js. <br>
-5. <on Browser> Go to http://localhost:3000/  <br>
+5. <on Browser> Go to http://localhost:3001/  <br>
 <br>
 Live page: https://immense-escarpment-67156.herokuapp.com/
