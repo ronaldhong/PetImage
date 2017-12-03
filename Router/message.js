@@ -10,8 +10,7 @@ router.get('/post/edit/:id', function(req,res){
   // console.log(req.user.username);
   Message.find({_id: req.params.id})
   .then(function(messages){
-    let message= messages[0]
-    // console.log(messages[0]._id);
+    let message= messages[0];
     res.render('edit',{
       messages: message,
       user:req.user

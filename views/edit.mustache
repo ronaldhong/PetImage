@@ -35,22 +35,22 @@
       <div class="upload_form">
         <form class="edit_form" action="/edit/{{_id}}" method="post" >
           <div class="text_input">
-            <input type="text" id="pet-title" class="form-control" name="title" value={{title}} placeholder="Title">
+            <input type="text" id="pet-title" class="form-control" name="title" value='{{title}}' placeholder="Title">
           </div>
           <div class="text_input">
             <textarea class="form-control" id="pet-body" name="body" rows="8" cols="80" placeholder="Body">{{body}}</textarea>
           </div>
           <div class="text_input">
-            <input type="text" class="form-control" id="pet-contact" name="contact" value={{contact}} placeholder="Contact Method Ex. Email/Phone">
+            <input type="text" class="form-control" id="pet-contact" name="contact" value='{{contact}}' placeholder="Contact Method Ex. Email/Phone">
           </div>
           <div class="text_input">
-            <input type="text" class="form-control" id="pet-lat" name="lat" value={{lat}} placeholder="Latitude Ex. 29.7548">
+            <input type="text" class="form-control" id="pet-lat" name="lat" value='{{lat}}' placeholder="Latitude Ex. 29.7548">
           </div>
           <div class="text_input">
-            <input type="text" class="form-control" id="pet-long" name="long" value={{long}} placeholder="Longitude Ex. -95.369">
+            <input type="text" class="form-control" id="pet-long" name="long" value='{{long}}' placeholder="Longitude Ex. -95.369">
           </div>
           <div class="text_input">
-            <input type="text" class="form-control" id="pet-img" name="img" value={{imageURL}} placeholder="Image URL">
+            <input type="text" class="form-control" id="pet-img" name="img" value='{{imageURL}}' placeholder="Image URL">
           </div>
           <p style="color: white">Right click on the map to find your coordinate.</p>
           <!-- <input type="file" name="myimage" value="" onchange="readURL(this)" ></input> -->

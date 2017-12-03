@@ -45,6 +45,10 @@ label{
   display: flex;
   margin-bottom: 15px;
 }
+.message_box{
+  margin: 10px 5px;
+  border-bottom: 1px double black;
+}
 .background{
   background-image: url('http://www.houstontranstar.org/resources/images/houston_texas_carousel.jpg');
   position: absolute;

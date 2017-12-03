@@ -33,6 +33,7 @@
     </nav>
     <div class="users_messages">
       {{#messages}}
+      <div class="message_box">
         <div class="user_message">
           <div class="img_box">
             <img class="user_upload_img" src={{imageURL}} alt="img" height=150 width=150>
@@ -61,16 +62,17 @@
           <textarea name="name" rows="1" cols="80" placeholder="write a comment......"></textarea>
           <input type="submit" name="" value="submit">
         </form>
-      <div class="">
-        <div class="{{_id}} comments" style="display: none">
-          {{#comments}}
-          <div class="comment">
-            <div>
-              <p><i class="fa fa-user">  </i>  {{body}}        by {{user}}</p>
-              <p>{{createAt}}</p>
+        <div class="">
+          <div class="{{_id}} comments" style="display: none">
+            {{#comments}}
+            <div class="comment">
+              <div>
+                <p><i class="fa fa-user">  </i>  {{body}}        <small>by</small> {{user}}</p>
+                <p>{{createAt}}</p>
+              </div>
             </div>
+            {{/comments}}
           </div>
-          {{/comments}}
         </div>
       </div>
 
