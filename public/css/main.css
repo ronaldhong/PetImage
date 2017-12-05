@@ -179,7 +179,12 @@ nav a{
   /*padding-left: 20px;*/
   padding-top: 40px;
 }
-
+.form_note h6{
+  width:40%;
+  min-width: 500px;
+  margin: 20px 0px 0px 50px;
+  color: white;
+}
 .login_header,
 footer{
   text-align: center;
@@ -187,7 +192,6 @@ footer{
 }
 body {
 	background: #292B2C !important;
-
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
 }
 #map {
@@ -255,6 +259,36 @@ input[type="password"] {
   margin-bottom: 20px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.tooltip{
+  position: relative;
+  display: inline-block;
+}
+.tooltip_text{
+  padding: 5px 10px;
+  visibility: hidden;
+  width:200px;
+  background-color:#D7F7BE;
+  position: absolute;
+  /*/position*/
+  border-radius: 10%;
+  top:-10px;
+  height:80px;
+  margin-left: 200px;
+  z-index: 1;
+}
+.tooltip:hover .tooltip_text{
+  visibility: visible;
+}
+.tooltip:hover:after{
+  content:" ";
+  background-color: #D7F7BE;
+  width: 30px;
+  height:20px;
+  margin-left: 190px;
+  top:15px;
+  position: absolute;
+  transform: rotate(45deg);
 }
 .post{
   width: 50%;

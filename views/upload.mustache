@@ -31,6 +31,9 @@
         </ul>
       </div>
     </nav>
+    <div class="form_note">
+      <h6>*Please try to include as much detail as you can when filling out the form, this way it can greatly increase the chance for others to find your missing pet, or to rescue street animals.</h6>
+    </div>
     <div class="upload_flex">
       <div id="map"></div>
       <div class="upload_form">
@@ -50,15 +53,18 @@
           <div class="text_input">
             <input type="text" class="form-control" id="pet-long" name="long" value="" placeholder="Longitude Ex. -95.369 *">
           </div>
-          <div class="text_input">
+          <div class="text_input tooltip">
             <input type="text" class="form-control" id="pet-img" name="img" value="" placeholder="Image URL">
+            <span class="tooltip_text">
+              <h6>For Image URL, you can upload image to <a href="https://imgbb.com/" target=_blank"">imgbb</a> and copy the image URL, we appolgize for the inconvenience.</h6>
+            </span>
           </div>
           <p style="color: white">Right click on the map to find out your coordinate.</p>
           <!-- <input type="file" name="myimage" value="" onchange="readURL(this)" ></input> -->
           <div class="search">
             <input class="btn btn-primary" type="submit" name="" value="Submit">
           </div>
-          <p style="color:white">After 10 days, inactive post will be deleted.</p>
+          <h5 style="color:white">After 10 days, inactive post will automatically be deleted.</h5>
         </form>
       </div>
 

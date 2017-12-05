@@ -32,11 +32,21 @@
       <form class="post" action="/register" method="post">
         <div>
           <label for="username">New Username</label>
+          {{^user}}
           <input type="text" class="form-control" name="username" value="">
+          {{/user}}
+          {{#user}}
+          <input type="text" class="form-control" name="username" value={{user}}>
+          {{/user}}
         </div>
         <div class="">
           <label for="email">Email Address</label>
+          {{^email}}
           <input type="email" class="form-control" name="email" value="">
+          {{/email}}
+          {{#email}}
+          <input type="email" class="form-control" name="email" value={{email}}>
+          {{/email}}
         </div>
         <div>
           <label for="password">New Password</label>
