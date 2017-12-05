@@ -1,55 +1,41 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/Users")
+const User = require("../models/Users");
+const error_message="";
+
 router.get('/signup', function(req,res){
   res.render('register')
 })
 
 router.post('/register', function(req, res){
-  let error_message=""
-  if ((req.body.password !== req.body.confirm)||(req.body.password=="")||(req.body.password.length<9)){
-    if (req.body.password !== req.body.confirm){
-      error_message="Password and the confirmation do not match!"
+  //check valdation
+  req.check('username', "Username is empty").isLength({min:1});
+  req.check('username', "Username length must be greater than 6").isLength({min:6})
+  req.check('email',"Invlalid email address").isEmail();
+  req.check('password',"Password length must be greater than 8").isLength({min:8})
+  req.check('password',"Password does not match with the confirm password").equals(req.body.confirm);
+
+  var errors = req.validationErrors();
+  if (errors) {
+      // Render validation error messages
+      var error = errors;
       res.render('register',{
-        error_message
-      })
-    };
-    if (req.body.password==""){
-      error_message="Please enter a password."
-      res.render('register',{
-        error_message
-      })
-    }
-    if (req.body.password.length<9){
-      error_message="Password length needs to be higher than 8."
-      res.render('register',{
-        error_message
+        error
       })
     }
-  }
-  else{
+  else {
     User.findOne({email: req.body.email}, function(err, doc){
-      if (err){
-        error_message="Oppps! Something went wrong, please try again!"
-        res.render('register',{
-          error_message
-        })
-      }
       if (doc != null){
-        error_message = "There is already an account with this email address.";
+        console.log("email already exist");
+        let error_message = "There is already an account with this email address.";
         res.render('register',{
           error_message
         })
       }else{
+        console.log("something's wrong");
         User.findOne({username: req.body.username}, function(err,doc){
-          if (err){
-            error_message="Oppps! Something went wrong, please try again!"
-            res.render('register',{
-              error_message
-            })
-          }
           if (doc != null){
-            error_message="This username is already taken!"
+            let error_message="This username is already taken!"
             res.render('register',{
               error_message
             })
@@ -69,5 +55,24 @@ router.post('/register', function(req, res){
     })
   }
 
+
+
+
+  // if ((req.body.password !== req.body.confirm)||(req.body.password=="")||(req.body.password.length<9)){
+  //   if (req.body.password !== req.body.confirm){
+  //     error_message="Password and the confirmation do not match!"
+  //     res.render('register',{
+  //       error_message
+  //     })
+  //   }
+  //   else{
+  //     if ((req.body.password =="")||(req.body.password.length<9)){
+  //       error_message="Password length needs to be larger than 8."
+  //       res.render('register',{
+  //         error_message
+  //       })
+  //     }
+  //   }
+  // }
 })
 module.exports = router;

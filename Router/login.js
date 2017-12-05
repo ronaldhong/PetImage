@@ -20,7 +20,6 @@ router.post('/auth', function(req, res){
       res.redirect("/")
     }else{
       let error = "print message"
-      console.log("login fail, render to login again");
       res.render("login",{
         error: error
       })

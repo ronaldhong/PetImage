@@ -37,7 +37,6 @@ router.post('/comment/post/:id', function(req,res){
     body = req.body.name;
     user = req.user.username
     createAt = Date()
-    console.log(createAt);
     message.comments.push({body: body, user:user, createAt:createAt})
     message.save()
     .then(function(){

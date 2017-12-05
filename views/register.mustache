@@ -20,32 +20,29 @@
       {{#error_message}}
       <div style="color: red">{{error_message}}</div>
       {{/error_message}}
-      {{#user_exist}}
-      <div class="" style="color: red">User already exist</div>
-      {{/user_exist}}
+
+      {{#error}}
+      <section>
+        <div style="color: red;" >
+          {{msg}}
+        </div>
+      </section>
+      {{/error}}
+
       <form class="post" action="/register" method="post">
         <div>
-          {{#error.errors.username}}
-            <div style="color: red">username required</div>
-          {{/error.errors.username}}
-          <label for="">New Username</label>
+          <label for="username">New Username</label>
           <input type="text" class="form-control" name="username" value="">
         </div>
         <div class="">
-          {{#error.errors.username}}
-            <div style="color: red">email required</div>
-          {{/error.errors.username}}
-          <label for="">Email Address</label>
+          <label for="email">Email Address</label>
           <input type="email" class="form-control" name="email" value="">
         </div>
         <div>
-          {{#error.errors.password}}
-            <div style="color: red">password required</div>
-          {{/error.errors.password}}
-          <label for="">New Password</label>
+          <label for="password">New Password</label>
           <input type="password" class="form-control" name="password" value="">
           </br>
-          <label for="">Confirm Password</label>
+          <label for="password">Confirm Password</label>
           <input type="password" class="form-control" name="confirm" value="">
         </div>
         <input class="btn btn-primary" type="submit" name="" value="Sign up!"> Already have an <a id="login_link"href="/">account</a>...?

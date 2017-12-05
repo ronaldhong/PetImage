@@ -19,14 +19,11 @@ router.post("/api/pet", function(req,res){
   message.contact= req.body.contact
   message.imageURL= req.body.image
   message.createAt=Date.now()
-  console.log('body',req.body.body);
   message.save()
   .then(function(message){
-    console.log("IN?");
     res.redirect('/mypost')
   })
   .catch( function(validationError){
-    console.log("ERROR in?");
     res.redirect('/mypost')
     let error;
     res.status(422).json(validationError)

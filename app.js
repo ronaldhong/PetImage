@@ -6,6 +6,7 @@ const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const expressValidator = require('express-validator')
 const message =require("./models/Message")
 
 app.engine('mustache', mustache())
@@ -16,8 +17,8 @@ app.use(morgan('tiny'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 mongoose.Promise = require("bluebird");
-// mongoose.connect("mongodb://0.0.0.0:27017/petImage")
-mongoose.connect("mongodb://testUser:user@ds227525.mlab.com:27525/petimage")
+mongoose.connect("mongodb://0.0.0.0:27017/petImage")
+// mongoose.connect("mongodb://testUser:user@ds227525.mlab.com:27525/petimage")
 
 
 var sess = {
@@ -27,6 +28,7 @@ var sess = {
   resave: true,
   saveUninitialized: true
 }
+app.use(expressValidator());
 app.use(session(sess))
 
 const loginRoute= require('./Router/login')
