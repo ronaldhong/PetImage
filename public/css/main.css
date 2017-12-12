@@ -267,13 +267,13 @@ input[type="password"] {
 .tooltip_text{
   padding: 5px 10px;
   visibility: hidden;
-  width:200px;
+  width:250px;
   background-color:#D7F7BE;
   position: absolute;
   /*/position*/
   border-radius: 10%;
   top:-10px;
-  height:80px;
+  height:150px;
   margin-left: 200px;
   z-index: 1;
 }
@@ -335,8 +335,6 @@ ul#menu > li{
   transition:border-bottom .1s, border-top .1s .1s;
   }
 
-/*label:hover,
-input:checked ~ label{background:rgba(0,0,0,.3);}*/
 
 .input_menu:checked ~ label:after{
   border-top:0 solid rgba(255,255,255,.5);
@@ -363,13 +361,3 @@ ul.submenu{
   position:absolute;
   min-width:100%;
 }
-
-/*ul.submenu li a{
-  display:block;
-  padding:12px;
-  color:#ddd;
-  text-decoration:none;
-  box-shadow:0 -1px rgba(0,0,0,.5) inset;
-  transition:background .3s;
-  white-space:nowrap;
-}*/
