@@ -1,5 +1,3 @@
-///share comment display/hide
-
 $(document).ready(function(){
     // $('#slides').slidesjs({
     //   width: 740,
@@ -23,20 +21,14 @@ $(document).ready(function(){
       $(`#${this.id}`).hide();
     })
 });
-/////Delete mypost
-function Conform_Delete()
-    {
-       return conform("Are You Sure?");
-    }
 ///Fetch
 if (document.querySelector("form.live-submit")){
   document.querySelector("form.live-submit").addEventListener("submit", function(event){
     event.preventDefault();
     let image;
-    let title = document.querySelector("#pet-title").value.toString()
-    let body = document.querySelector("#pet-body").value.toString()
-    let contact = document.querySelector("#pet-contact").value.toString()
-    // let image = document.querySelector("#pet-img").value.toString()
+    let title = document.querySelector("#pet-title").value.toString();
+    let body = document.querySelector("#pet-body").value.toString();
+    let contact = document.querySelector("#pet-contact").value.toString();
     console.log(document.querySelector("#pet-img").value.toString());
     if (document.querySelector("#pet-img").value.toString()){
       form = {
@@ -49,7 +41,6 @@ if (document.querySelector("form.live-submit")){
       };
     }
     else{
-      // let image = 'http://www.craftcuts.com/media/catalog/product/cache/42/small_image/360x250/0d0b21afdf5242369dcac3b6f8a25135/d/i/dimensional_animals_dogs_labrador_retriever.jpg';
       form = {
         title: title,
         body: body,
@@ -60,9 +51,7 @@ if (document.querySelector("form.live-submit")){
       };
     }
 
-    // let lat = document.querySelector("#pet-lat").value
-    // let long = document.querySelector("#pet-long").value
-    console.log("form",form);
+
     fetch("/api/pet", {
       method: "POST",
       body: JSON.stringify(form),
@@ -74,11 +63,11 @@ if (document.querySelector("form.live-submit")){
     })
     .then( function(response){
       alert("Your post is successfully saved!")
-      return response
-
+      window.location.replace("https://immense-escarpment-67156.herokuapp.com/");
+      // window.location.replace("http://localhost:3001/");
     })
     .catch( function(e) {
-      console.log("ERROR")
+      alert("Something went wrong, please try again!")
     })
   });
 }
